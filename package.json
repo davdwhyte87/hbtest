@@ -1,0 +1,39 @@
+{
+  "name": "hbtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davdwhyte87/hbtest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davdwhyte87/hbtest/issues"
+  },
+  "homepage": "https://github.com/davdwhyte87/hbtest#readme",
+
+  "scripts": {
+    "start-dev": "nodemon server.js --exec babel-node ",
+    "start": "babel-node server.js",
+    "test": "mocha --require @babel/register --exit",
+    "clean": "rimraf dist coverage ",
+    "build": "yarn run clean && babel ./ --out-dir ./dist --ignore ./node_modules",
+    "coverage": "yarn run build && nyc npm test && nyc report --reporter=text-lcov || coveralls"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1"
+  }
+}
